@@ -1,0 +1,26 @@
+﻿@model SalesApp.Models.DashboardViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row" style="display: inline-block;">
+    <div class="tile_count">
+        <div class="col-md-3 col-sm-4  tile_stats_count">
+            <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
+            <div class="count">@Model.TotalUsers</div>
+        </div>
+        <div class="col-md-3 col-sm-4  tile_stats_count">
+            <span class="count_top"><i class="fa fa-user"></i> Total Customers</span>
+            <div class="count green">@Model.TotalCustomers</div>
+        </div>
+        <div class="col-md-3 col-sm-4  tile_stats_count">
+            <span class="count_top"><i class="fa fa-user"></i> Total Products</span>
+            <div class="count">@Model.TotalProducts</div>
+        </div>
+        <div class="col-md-3 col-sm-4  tile_stats_count">
+            <span class="count_top"><i class="fa fa-user"></i> Total Sales</span>
+            <div class="count">@Model.TotalSales</div>
+        </div>
+    </div>
+</div>
+<!-- /top tiles -->

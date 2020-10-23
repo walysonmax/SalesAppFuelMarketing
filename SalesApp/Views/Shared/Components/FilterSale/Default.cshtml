@@ -1,0 +1,54 @@
+﻿@model FilterSaleViewModel
+
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Filter</h2>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+
+        <!-- start form for validation -->
+        <form  data-parsley-validate asp-controller="Sales" asp-action="Index">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="fullname">Customer :</label>
+
+                    <select class="form-control" asp-for="CustomerId">
+                        <option value="">select...</option>
+                        @foreach (var customer in Model.Customers)
+                        {
+                            <option value="@customer.Id">@customer.Name</option>
+                        }
+                    </select>
+                </div>
+           
+                <div class="col-md-6">
+                    <label for="email">Product  :</label>
+                    <select class="form-control" asp-for="ProductId">
+                        <option value="">select...</option>
+                        @foreach (var product in Model.Producs)
+                        {
+                            <option value="@product.Id">@product.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="fullname">Start Date :</label>
+                    <input type="date" class="form-control" asp-for="StartPurchaseDate" />
+                </div>
+                <div class="col-md-6">
+                    <label for="email">End Date  :</label>
+                    <input type="date" class="form-control" asp-for="EndPurchaseDate" />
+
+                </div>
+            </div>
+            <br />
+            <input type="submit" class="btn btn-primary" value="Filter" />
+
+        </form>
+        <!-- end form for validations -->
+
+    </div>
+</div>

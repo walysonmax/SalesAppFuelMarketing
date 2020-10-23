@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SalesApp.Models.ProductsViewModel>
+
+
+@{
+    ViewData["Title"] = "Products";
+}
+<div class="page-title">
+    <div class="title_left">
+        <h3>Products </h3>
+    </div>
+    <a class="btn btn-primary" asp-action="Include">New Product</a>
+
+
+</div>
+
+
+
+<div class="x_panel">
+   
+    <div class="x_content">
+
+        @if (!Model.Any())
+        {
+            <span>No results</span>
+        }
+        else
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    @foreach (var customer in Model)
+                    {
+                        <tr>
+                            <th scope="row">@customer.Id</th>
+                            <td>@customer.Name</td>
+                            <td>@customer.Price</td>
+                            <td>  <a class="btn btn-default" href="Products/@customer.Id"><i class="fa fa-edit"></a></td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        }
+
+
+    </div>
+</div>

@@ -1,0 +1,77 @@
+﻿@model SaleViewModel
+
+@{
+    ViewData["Title"] = "Sale";
+}
+<div class="page-title">
+    <div class="title_left">
+        <h3>Sales</h3>
+    </div>
+</div>
+
+<div class="x_panel">
+    <div class="x_content">
+
+        <!-- start form for validation -->
+        <form id="demo-form" data-parsley-validate asp-action="Save">
+            <input type="hidden" asp-for="Id" />
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="fullname">Customer :</label>
+                    <select class="form-control" asp-for="CustomerId" required>
+
+                        <option value="">select...</option>
+
+
+                        @foreach (var customer in Model.Customers)
+                        {
+                            if (customer.Id == Model.CustomerId)
+                            {
+                                <option value="@customer.Id" selected>@customer.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@customer.Id">@customer.Name</option>
+
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="email">Product  :</label>
+                    <select class="form-control" asp-for="ProductId" required>
+
+                        <option value="">select...</option>
+
+
+                        @foreach (var product in Model.Producs)
+                        {
+                            if (product.Id == Model.ProductId)
+                            {
+                                <option value="@product.Id" selected>@product.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@product.Id">@product.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="email">Date  :</label>
+                    <input type="date" id="email" class="form-control" asp-for="PurchaseDate" data-parsley-trigger="change" required />
+                </div>
+            </div>
+            <br />
+
+
+            <input type="submit" class="btn btn-primary" value="Save" />
+
+        </form>
+        <!-- end form for validations -->
+
+    </div>
+</div>
+
+

@@ -1,0 +1,41 @@
+﻿@model ProductsViewModel
+
+@{
+    ViewData["Title"] = "Product";
+}
+<div class="page-title">
+    <div class="title_left">
+        <h3>Product</h3>
+    </div>
+</div>
+
+<div class="x_panel">
+       <div class="x_content">
+
+        <!-- start form for validation -->
+        <form id="demo-form" data-parsley-validate asp-action="Save">
+            <input type="hidden" asp-for="Id"/>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="fullname">Name :</label>
+                    <input type="text" id="name" asp-for="Name" class="form-control"  required />
+                </div>
+                <div class="col-md-6">
+                    <label for="email">Price  :</label>
+                    <input id="email" type="number" class="form-control" asp-for="Price" name="price" data-parsley-trigger="change" required />
+
+                </div>
+            </div>
+            <br />
+           
+
+            <input type="submit" class="btn btn-primary" value="Save"/>
+
+        </form>
+        <!-- end form for validations -->
+
+    </div>
+</div>
+
+
